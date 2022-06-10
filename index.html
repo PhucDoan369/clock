@@ -2,6 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
     <title>Clock</title>
     <style>
         @-webkit-keyframes my {
@@ -38,11 +50,26 @@
             padding:30px;
             font-family: Verdana;
             font-size: 5em;
-            background:teal;
+            background: #006d80;
             color: #f5f2f6;
             border-radius: 30px;
             text-align: center;
             font-weight: bold;
+        }
+        .textchat {
+            left: 200px;
+            width: 500px;
+            height: 400px;
+            /*padding:60px;*/
+            /*font-family: Verdana;*/
+            /*font-size: 2em;*/
+            background: #1f8899;
+            color: #f5f2f6;
+            border-radius: 30px;
+            font-weight: bold;
+            border: none;
+            resize: none;
+            opacity: 80%;
         }
         #textt{
             margin: 30px auto;
@@ -50,15 +77,62 @@
             padding:30px;
             font-family: Verdana;
             font-size: 5em;
-            background:teal;
-            color: #f5f2f6;
+            background:#006d80;
+            color: rgba(255, 255, 255, 0.97);
             border-radius: 20px;
             text-align: center;
             font-weight: bold;
         }
         body {
-            background-color: #06445a;
+            background: url('https://i.pinimg.com/originals/99/8e/05/998e055aba57c24138220937cc5166ab.gif');
+
         }
+        #chatbox{
+
+            border: 3px solid #f1f1f1;
+            position: absolute;
+            bottom: 2%;
+            right: 2%;
+            z-index: 9;
+        }
+        .form-container{
+            max-width: 300px;
+            padding: 10px;
+            background: white;
+        }
+        .form-container textarea{
+            width: 100%;
+            min-height:200px;
+            border: none;
+            resize: none;
+            padding: 10px;
+            margin: 5px 0 22px 0;
+            background: #f1f1f1;
+            font-size: 15px;
+        }
+        .form-container textarea:focus{
+            background: #ddd;
+            outline: none;
+        }
+        .btn-send{
+            font-size: 18px;
+            margin-bottom: 10px;
+            border: none;
+            width: 100%;
+            opacity: 2;
+        }
+        .btn-send:hover{
+            opacity: 1;
+        }
+        h2{
+            background: teal;
+            color:white;
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+        }
+
+
     </style>
 </head>
 <body>
@@ -98,7 +172,39 @@
     function textt2(){
         document.getElementById("textt").innerHTML = " "
     }
-    dongho()
+
+
+
+    // function closeChat() {
+        // document.getElementById('chatbox').style.display='none';
+        // $('.btn-chat').show();
+    // }
+    function handleClick() {
+        var text =$('#msg').val()
+        $('#messages').append(text);
+
+        return false
+    }
+        dongho()
 </script>
+
+<div class="container">
+<!--     <h1 id="messages" class="textchat"></h1> -->
+<!--    <button class="btn btn-info btn-chat" type="button" onclick="openChat()">Chat</button>-->
+
+    <div class="chatbox" id="chatbox">
+        <h2 >Message</h2>
+        <form class="form-container" onSubmit= "return handleClick()" >
+            <textarea type="text"  id="msg" required=""></textarea>
+            <button type="submit" class="btn btn-info btn-lg btn-send">Send</button>
+<!--            <button type="button" class="btn btn-danger btn-lg btn-close" onclick="closeChat()">Close</button>-->
+
+        </form>
+</div>
+</div>
+
+
+
+
 </body>
 </html>
