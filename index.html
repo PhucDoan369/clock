@@ -4,6 +4,34 @@
     <meta charset="UTF-8">
     <title>Clock</title>
     <style>
+        @-webkit-keyframes my {
+            0% { color: #F8CD0A; }
+            50% { color: #fff;  }
+            100% { color: #F8CD0A;  }
+        }
+        @-moz-keyframes my {
+            0% { color: #F8CD0A;  }
+            50% { color: #fff;  }
+            100% { color: #F8CD0A;  }
+        }
+        @-o-keyframes my {
+            0% { color: #F8CD0A; }
+            50% { color: #fff; }
+            100% { color: #F8CD0A;  }
+        }
+        @keyframes my {
+            0% { color: #F8CD0A;  }
+            50% { color: #fff;  }
+            100% { color: #F8CD0A;  }
+        }
+        .test {
+            font-size:24px;
+            font-weight:bold;
+            -webkit-animation: my 700ms infinite;
+            -moz-animation: my 700ms infinite;
+            -o-animation: my 700ms infinite;
+            animation: my 700ms infinite;
+        }
         #time {
             margin: 30px auto;
             width: 500px;
@@ -12,7 +40,7 @@
             font-size: 5em;
             background:teal;
             color: #f5f2f6;
-            border-radius: 10px;
+            border-radius: 30px;
             text-align: center;
             font-weight: bold;
         }
@@ -24,7 +52,7 @@
             font-size: 5em;
             background:teal;
             color: #f5f2f6;
-            border-radius: 10px;
+            border-radius: 20px;
             text-align: center;
             font-weight: bold;
         }
@@ -35,9 +63,10 @@
 </head>
 <body>
 <div id="time"></div>
-<h1 id="textt"></h1>
+<h1 id="textt" class="test"></h1>
 <script>
     function dongho() {
+
         var time = new Date();
         var gio = time.getHours();
         var phut = time.getMinutes();
@@ -48,10 +77,13 @@
             phut = "0" + phut;
         if (giay < 10)
             giay = "0" + giay;
-
         if (time.getHours() == 15 && time.getMinutes() == 0 && time.getSeconds() == 0){
             play()
+        }
+        if(time.getHours() == 15 && time.getMinutes() == 0 ){
             textt()
+        } else {
+            textt2()
         }
         document.getElementById("time").innerHTML = gio + ":" + phut + ":" + giay;
         setTimeout("dongho()", 1000);
@@ -62,6 +94,9 @@
     }
     function textt(){
         document.getElementById("textt").innerHTML = "Tự Giác Đi Các Pro !!!"
+    }
+    function textt2(){
+        document.getElementById("textt").innerHTML = " "
     }
     dongho()
 </script>
