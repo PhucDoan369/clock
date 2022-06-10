@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,16 +47,18 @@
             animation: my 700ms infinite;
         }
         #time {
+            top: 30px;
             margin: 30px auto;
-            width: 500px;
+            width: 1000px;
             padding:30px;
             font-family: Verdana;
-            font-size: 5em;
-            background: #006d80;
+            font-size: 15em;
+            background: #1f8899;
             color: #f5f2f6;
-            border-radius: 30px;
+            border-radius: 80px;
             text-align: center;
             font-weight: bold;
+            opacity: 90%;
         }
         .textchat {
             left: 200px;
@@ -133,11 +136,11 @@
             padding: 10px;
         }
 
-
     </style>
 </head>
 <body>
-<div id="time"></div>
+<div >
+<div id="time"></div></div>
 <h1 id="textt" class="test"></h1>
 
 
@@ -178,11 +181,9 @@
         document.getElementById("textt").innerHTML = " "
     }
 
-
-
     // function closeChat() {
-        // document.getElementById('chatbox').style.display='none';
-        // $('.btn-chat').show();
+    // document.getElementById('chatbox').style.display='none';
+    // $('.btn-chat').show();
     // }
     function handleClick() {
         var text =$('#msg').val()
@@ -190,26 +191,22 @@
 
         return false
     }
-        dongho()
+    dongho()
 </script>
 
 <div class="container">
-<!--     <h1 id="messages" class="textchat"></h1> -->
-<!--    <button class="btn btn-info btn-chat" type="button" onclick="openChat()">Chat</button>-->
+    <!--     <h1 id="messages" class="textchat"></h1> -->
+    <!--    <button class="btn btn-info btn-chat" type="button" onclick="openChat()">Chat</button>-->
 
     <div class="chatbox" id="chatbox">
         <h2 >Message</h2>
         <form class="form-container" onSubmit= "return handleClick()" >
             <textarea type="text"  id="msg" required=""></textarea>
             <button type="submit" class="btn btn-info btn-lg btn-send">Send</button>
-<!--            <button type="button" class="btn btn-danger btn-lg btn-close" onclick="closeChat()">Close</button>-->
+            <!--            <button type="button" class="btn btn-danger btn-lg btn-close" onclick="closeChat()">Close</button>-->
 
         </form>
+    </div>
 </div>
-</div>
-
-
-
-
 </body>
 </html>
