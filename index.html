@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Clock</title>
+    <style>
+        #time {
+            margin: 30px auto;
+            width: 500px;
+            padding:30px;
+            font-family: Verdana;
+            font-size: 5em;
+            background:teal;
+            color: #f5f2f6;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+        #textt{
+            margin: 30px auto;
+            width: 500px;
+            padding:30px;
+            font-family: Verdana;
+            font-size: 5em;
+            background:teal;
+            color: #f5f2f6;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+        body {
+            background-color: #06445a;
+        }
+    </style>
+</head>
+<body>
+<div id="time"></div>
+<h1 id="textt"></h1>
+<script>
+    function dongho() {
+        var time = new Date();
+        var gio = time.getHours();
+        var phut = time.getMinutes();
+        var giay = time.getSeconds();
+        if (gio < 10)
+            gio = "0" + gio;
+        if (phut < 10)
+            phut = "0" + phut;
+        if (giay < 10)
+            giay = "0" + giay;
+
+        if (time.getHours() == 15 && time.getMinutes() == 0 && time.getSeconds() == 0){
+            play()
+            textt()
+        }
+        document.getElementById("time").innerHTML = gio + ":" + phut + ":" + giay;
+        setTimeout("dongho()", 1000);
+    }
+    function play() {
+        var audio = new Audio('https://nhacchuong123.com/nhac-chuong/am-thanh/Nhac-Chuong-Hanh-Phuc-Moi-Son-Tung-MTP.mp3')
+        audio.play();
+    }
+    function textt(){
+        document.getElementById("textt").innerHTML = "Tự Giác Đi Các Pro !!!"
+    }
+    dongho()
+</script>
+</body>
+</html>
